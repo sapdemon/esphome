@@ -26,7 +26,7 @@ enum ClimateMode : uint8_t {
    */
   CLIMATE_MODE_AUTO = 6,
   // Ventilation mode
-  CLIMATE_MODE_VENT = 7
+  CLIMATE_MODE_VENT = 7,
 };
 
 /// Enum for the current action of the climate device. Values match those of ClimateMode.
@@ -43,6 +43,8 @@ enum ClimateAction : uint8_t {
   CLIMATE_ACTION_DRYING = 5,
   /// The climate device is in fan only mode
   CLIMATE_ACTION_FAN = 6,
+  // Ventilation mode
+  CLIMATE_MODE_VENT = 7,
 };
 
 enum ClimateFanMode : uint8_t {
