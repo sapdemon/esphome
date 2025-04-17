@@ -320,7 +320,7 @@ void Madoka::parse_cb_(message msg) {
   switch (function_id) {
     case 0x0020:
     case 0x0030:
-      ESP_LOGI(TAG, "status: %d, mode: %d", this->cur_status_.status, this->cur_status_.mode);
+      ESP_LOGI(TAG, "statusX: %d, mode: %d", this->cur_status_.status, this->cur_status_.mode);
       if (this->cur_status_.status) {
         switch (this->cur_status_.mode) {
           case 0:
