@@ -373,7 +373,11 @@ void Madoka::parse_cb_(message msg) {
       while (i < message_size) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
+        // log
         ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        message val4log(msg.begin() + i, msg.begin() + i + len);
+        ESP_LOGI(TAG, "argument_val: %s", val4log);
+        // log end
         if (this->cur_status_.mode == 1) {
         } else if ((argument_id == 0x21 && len == 1 && this->cur_status_.mode == 4) ||
                    (argument_id == 0x20 && len == 1 && this->cur_status_.mode != 4)) {
