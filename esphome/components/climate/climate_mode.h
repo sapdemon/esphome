@@ -25,7 +25,7 @@ enum ClimateMode : uint8_t {
    * The target temperature can't be adjusted when in this mode.
    */
   CLIMATE_MODE_AUTO = 6,
-  // Ventilation mode
+  /// Ventilation mode
   CLIMATE_MODE_VENT = 7,
 };
 
@@ -43,7 +43,7 @@ enum ClimateAction : uint8_t {
   CLIMATE_ACTION_DRYING = 5,
   /// The climate device is in fan only mode
   CLIMATE_ACTION_FAN = 6,
-  // Ventilation mode
+  /// Ventilation mode
   CLIMATE_ACTION_VENT = 7,
 };
 
