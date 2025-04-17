@@ -298,7 +298,7 @@ void Madoka::parse_cb_(message msg) {
       while (i < message_size) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
-        ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
         if (argument_id == 0x20) {
           message val(msg.begin() + i, msg.begin() + i + len);
           this->cur_status_.status = val[0];
@@ -309,7 +309,7 @@ void Madoka::parse_cb_(message msg) {
       while (i < message_size) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
-        ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
         if (argument_id == 0x20) {
           message val(msg.begin() + i, msg.begin() + i + len);
           this->cur_status_.mode = val[0];
@@ -352,7 +352,7 @@ void Madoka::parse_cb_(message msg) {
       while (i < message_size) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
-        ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
         switch (argument_id) {
           case 0x20: {
             message val(msg.begin() + i, msg.begin() + i + len);
@@ -374,9 +374,12 @@ void Madoka::parse_cb_(message msg) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
         // log
-        ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
         message val4log(msg.begin() + i, msg.begin() + i + len);
         ESP_LOGI(TAG, "argument_val: %s", val4log);
+        if (len == 1) {
+          ESP_LOGI(TAG, "argument_val_01: %d", msg[i]);
+        }
         // log end
         if (this->cur_status_.mode == 1) {
         } else if ((argument_id == 0x21 && len == 1 && this->cur_status_.mode == 4) ||
@@ -408,7 +411,7 @@ void Madoka::parse_cb_(message msg) {
       while (i < message_size) {
         uint8_t argument_id = msg[i++];
         uint8_t len = msg[i++];
-        ESP_LOGI(TAG, "argument_id: 0x%02x", argument_id);
+        ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
         if (argument_id == 0x40) {
           message val(msg.begin() + i, msg.begin() + i + len);
           this->current_temperature = val[0];
