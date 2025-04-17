@@ -63,6 +63,10 @@ void Madoka::control(const ClimateCall &call) {
         status_out = 1;
         mode_out = 1;
         break;
+      case climate::CLIMATE_MODE_VENT:
+        status_out = 1;
+        mode_out = 5;
+        break;
       default:
         ESP_LOGW(TAG, "Unsupported mode: %d", mode);
         break;
@@ -334,7 +338,10 @@ void Madoka::parse_cb_(message msg) {
           case 4:
             this->mode = climate::CLIMATE_MODE_HEAT;
             break;
-        }
+          case 5:
+            this->mode = climate::CLIMATE_MODE_VENT;
+            break;
+          }
       } else {
         this->mode = climate::CLIMATE_MODE_OFF;
       }

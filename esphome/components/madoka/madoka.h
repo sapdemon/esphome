@@ -91,6 +91,7 @@ class Madoka : public climate::Climate, public esphome::ble_client::BLEClientNod
         climate::CLIMATE_MODE_HEAT,
         climate::CLIMATE_MODE_FAN_ONLY,
         climate::CLIMATE_MODE_DRY,
+        climate::CLIMATE_MODE_VENT,
     });
     traits.set_supported_fan_modes({
         climate::CLIMATE_FAN_LOW,
