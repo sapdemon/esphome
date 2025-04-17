@@ -292,7 +292,7 @@ void Madoka::parse_cb_(message msg) {
   uint16_t function_id = msg[2] << 8 | msg[3];
   uint8_t i = 4;
   uint8_t message_size = msg.size();
-
+  ESP_LOGI(TAG, "function_id: %d", function_id);
   switch (function_id) {
     case 0x0020:
       while (i < message_size) {

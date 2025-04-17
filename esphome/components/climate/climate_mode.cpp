@@ -19,6 +19,8 @@ const LogString *climate_mode_to_string(ClimateMode mode) {
       return LOG_STR("FAN_ONLY");
     case CLIMATE_MODE_DRY:
       return LOG_STR("DRY");
+    case CLIMATE_MODE_VENT:
+      return LOG_STR("VENT");
     default:
       return LOG_STR("UNKNOWN");
   }
