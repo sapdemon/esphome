@@ -375,10 +375,11 @@ void Madoka::parse_cb_(message msg) {
         uint8_t len = msg[i++];
         // log
         ESP_LOGI(TAG, "argument_id: 0x%02x, len: %d", argument_id, len);
-        message val4log(msg.begin() + i, msg.begin() + i + len);
-        ESP_LOGI(TAG, "argument_val: %s", val4log);
         if (len == 1) {
           ESP_LOGI(TAG, "argument_val_01: %d", msg[i]);
+        } else {
+          message val4log(msg.begin() + i, msg.begin() + i + len);
+          ESP_LOGI(TAG, "argument_val: %s", val4log);
         }
         // log end
         if (this->cur_status_.mode == 1) {
